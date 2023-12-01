@@ -1,0 +1,83 @@
+IF NOT EXISTS
+    
+CREATE DATABASE instituto;
+
+\c instituto
+
+CREATE TABLE Persona (
+    Identificacion VARCHAR(20) PRIMARY KEY NOT NULL,
+    Nombre VARCHAR(50) NOT NULL,
+    Email VARCHAR(100),
+    Telefono VARCHAR(15),
+    Rol VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE Vehiculo (
+    Placa VARCHAR(20) PRIMARY KEY NOT NULL,
+    Marca VARCHAR(50) NOT NULL,
+    Tipo VARCHAR(50) NOT NULL,
+    id_persona VARCHAR(20) NOT NULL,
+    FOREIGN KEY (id_persona) REFERENCES Persona(Identificacion)
+);
+
+INSERT INTO Persona (Identificacion, Nombre, Email, Telefono, Rol) VALUES
+    ('1000000001', 'Juan Perez', 'juan@example.com', '3151234567', 'Docente'),
+    ('1000000002', 'María López', 'maria@example.com', '3009876543', 'Estudiante'),
+    ('1000000003', 'Carlos Ramirez', 'carlos@example.com', '3204567890', 'Administrativo'),
+    ('1000000004', 'Luisa Martinez', 'luisa@example.com', '3108765432', 'Visitante'),
+    ('1000000005', 'Andrés Rodríguez', 'andres@example.com', '3012345678', 'Docente'),
+    ('1000000006', 'Sofía García', 'sofia@example.com', '3506543210', 'Estudiante'),
+    ('1000000007', 'Alejandro Gómez', 'alejandro@example.com', '3217654321', 'Administrativo'),
+    ('1000000008', 'Laura Díaz', 'laura@example.com', '3001122334', 'Visitante'),
+    ('1000000009', 'Camila Pérez', 'camila@example.com', '3044455667', 'Docente'),
+    ('1000000010', 'Diego López', 'diego@example.com', '3156677889', 'Estudiante'),
+    ('1000000011', 'Valentina Ramírez', 'valentina@example.com', '3103344556', 'Administrativo'),
+    ('1000000012', 'Daniel Martínez', 'daniel@example.com', '3015566778', 'Visitante'),
+    ('1000000013', 'Marcela Rodríguez', 'marcela@example.com', '3107788990', 'Docente'),
+    ('1000000014', 'Andrea González', 'andrea@example.com', '3049900112', 'Estudiante'),
+    ('1000000015', 'Óscar Vargas', 'oscar@example.com', '3152233445', 'Administrativo'),
+    ('1000000016', 'Catalina Silva', 'catalina@example.com', '3006677889', 'Visitante'),
+    ('1000000017', 'Felipe Pérez', 'felipe@example.com', '3101122334', 'Docente'),
+    ('1000000018', 'Mariana López', 'mariana@example.com', '3014455667', 'Estudiante'),
+    ('1000000019', 'Mateo Ramírez', 'mateo@example.com', '3207788990', 'Administrativo'),
+    ('1000000020', 'Lucía Martínez', 'lucia@example.com', '3159900112', 'Visitante'),
+    ('1000000021', 'Gabriel Rodríguez', 'gabriel@example.com', '3042233445', 'Docente'),
+    ('1000000022', 'Ana González', 'ana@example.com', '3104455667', 'Estudiante'),
+    ('1000000023', 'David Vargas', 'david@example.com', '3006677889', 'Administrativo'),
+    ('1000000024', 'Paula Silva', 'paula@example.com', '3011122334', 'Visitante'),
+    ('1000000025', 'Santiago Pérez', 'santiago@example.com', '3024455667', 'Docente'),
+    ('1000000026', 'Valeria López', 'valeria@example.com', '3037788990', 'Estudiante'),
+    ('1000000027', 'Emilio Ramírez', 'emilio@example.com', '3049900112', 'Administrativo'),
+    ('1000000028', 'Isabela Martínez', 'isabela@example.com', '3052233445', 'Visitante'),
+    ('1000000029', 'Natalia González', 'natalia@example.com', '3064455667', 'Docente');
+
+INSERT INTO Vehiculo (Placa, Marca, Tipo, id_persona) VALUES
+    ('AAA123', 'Chevrolet', 'Carro', '1000000001'),
+    ('BBB456', 'Yamaha', 'Moto', '1000000002'),
+    ('CCC789', 'Renault', 'Carro', '1000000003'),
+    ('DDD012', 'Bianchi', 'Bicicleta', '1000000004'),
+    ('EEE345', 'Kia', 'Carro', '1000000005'),
+    ('FFF678', 'Suzuki', 'Moto', '1000000006'),
+    ('GGG901', 'BMW', 'Carro', '1000000007'),
+    ('HHH234', 'GW', 'Carro', '1000000008'),
+    ('III567', 'Hero', 'Moto', '1000000009'),
+    ('JJJ890', 'Toyota', 'Carro', '1000000010'),
+    ('KKK123', 'Audi', 'Carro', '1000000011'),
+    ('LLL456', 'Mazda', 'Carro', '1000000012'),
+    ('MMM789', 'BMC', 'Moto', '1000000013'),
+    ('NNN012', 'Ford', 'Carro', '1000000014'),
+    ('OOO345', 'Chevrolet', 'Carro', '1000000015'),
+    ('PPP678', 'Bianchi', 'Bicicleta', '1000000016'),
+    ('QQQ901', 'Toyota', 'Carro', '1000000017'),
+    ('RRR234', 'Honda', 'Moto', '1000000018'),
+    ('SSS567', 'Renault', 'Carro', '1000000019'),
+    ('TTT890', 'Suzuki', 'Moto', '1000000020'),
+    ('UUU123', 'Kia', 'Carro', '1000000021'),
+    ('VVV456', 'Chevrolet', 'Carro', '1000000022'),
+    ('WWW789', 'Yamaha', 'Moto', '1000000023'),
+    ('XXX012', 'Toyota', 'Carro', '1000000024'),
+    ('YYY345', 'Ford', 'Carro', '1000000025'),
+    ('ZZZ678', 'Hero', 'Moto', '1000000026'),
+    ('AAA901', 'Suzuki', 'Carro', '1000000027'),
+    ('BBB234', 'Kia', 'Carro', '1000000028'),
+    ('CCC567', 'Mazda', 'Carro', '1000000029');
